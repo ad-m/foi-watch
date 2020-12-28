@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-  # schedule:
+  schedule:
   # - cron: 0 10-20 * * 1-5 # every hour in working hour of working day
-  # - cron: 0 6 * * 1-5 # every working day 
+  - cron: 0 6 1 * * # every Month at 1st
 
 jobs:
   build:    
@@ -14,7 +14,7 @@ jobs:
       with:
          ref: master
     - name: Run update script
-      run: make update git_setup commit
+      run: make update git_setup autocommit
     - uses: ad-m/git-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
