@@ -14,7 +14,7 @@ jobs:
       with:
          ref: master
     - name: Install cake
-      run: make install_cake
+      run: sudo make install_cake
     - name: Install
       run: cake update
     - name: Save
