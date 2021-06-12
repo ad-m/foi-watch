@@ -13,12 +13,8 @@ jobs:
     - uses: actions/checkout@v1
       with:
          ref: master
-    - name: Install cake
-      run: sudo make install_cake
-    - name: Install
-      run: cake update
-    - name: Save
-      run: make git_setup autocommit
+    - name: Update
+      run: make build update git_setup autocommit
     - uses: ad-m/git-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

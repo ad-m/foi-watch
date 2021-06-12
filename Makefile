@@ -1,8 +1,11 @@
 install_cake:
 	curl -L -s "https://raw.githubusercontent.com/wurosh/cake/master/cake" -o /usr/local/bin/cake && chmod +x /usr/local/bin/cake
 
+build:
+	docker build -t xx .
+
 update:
-	python update.py
+	docker run -v $$(pwd):$$(pwd) -w $$(pwd) xx python update.py
 
 git_setup:
 	git config user.email "rbx-openapi-archive@github.com"
